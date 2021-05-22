@@ -1,6 +1,6 @@
-managed;
+managed implementation in class zbp_hska_i_ms_student unique;
 
-define behavior for ZHSKA_I_MS_STUDENT //alias <alias_name>
+define behavior for ZHSKA_I_MS_STUDENT alias Student
 persistent table ZHSKA_MS_STUD_01
 lock master
 //authorization master ( instance )
@@ -11,6 +11,8 @@ lock master
   create;
   update;
   delete;
+
+  validation validateStudentId on save { create; field StudentID; }
 
   mapping for zhska_ms_stud_01
   {
