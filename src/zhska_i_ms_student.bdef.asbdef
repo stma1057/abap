@@ -1,0 +1,22 @@
+managed;
+
+define behavior for ZHSKA_I_MS_STUDENT //alias <alias_name>
+persistent table ZHSKA_MS_STUD_01
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  field( readonly, numbering : managed ) StudentGUID;
+
+  create;
+  update;
+  delete;
+
+  mapping for zhska_ms_stud_01
+  {
+    StudentGUID = student_guid;
+    StudentID = student_id;
+    FirstName = firstname;
+    LastName = lastname;
+  }
+}
