@@ -6,7 +6,9 @@ CLASS lhc_student DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS:
-      validate_student_id FOR VALIDATE ON SAVE IMPORTING keys FOR Student~validateStudentId.
+      validate_student_id FOR VALIDATE ON SAVE IMPORTING keys FOR Student~validateStudentId,
+      matriculateStudent FOR MODIFY
+            IMPORTING keys FOR ACTION Student~matriculateStudent RESULT result.
 
 
 ENDCLASS.
@@ -51,6 +53,38 @@ CLASS lhc_student IMPLEMENTATION.
         ENDIF.
 
     ENDLOOP.
+
+  ENDMETHOD.
+
+  METHOD matriculateStudent.
+
+   READ ENTITIES OF zhska_i_ms_student IN LOCAL MODE
+        ENTITY Student
+        ALL FIELDS WITH CORRESPONDING #(  keys )
+        RESULT data(Students)
+        FAILED failed
+        REPORTED reported.
+
+        LOOP AT Students ASSIGNING FIELD-SYMBOL(<student>).
+
+            <student>-IsMatriculated = abap_true.
+
+        ENDLOOP.
+
+    MODIFY ENTITIES OF zhska_i_ms_student IN LOCAL MODE
+        ENTITY Student
+            UPDATE FIELDS ( IsMatriculated )
+                WITH VALUE #(  FOR key IN students (  StudentGUID = key-StudentGUID
+                                                      IsMatriculated = key-IsMatriculated ) )
+        FAILED failed
+        REPORTED reported.
+
+        IF failed IS INITIAL.
+
+            result = VALUE #( FOR student IN students ( StudentGUID = student-StudentGUID
+                                                        %param = student ) ).
+
+        ENDIF.
 
   ENDMETHOD.
 

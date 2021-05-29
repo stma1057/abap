@@ -7,10 +7,13 @@ lock master
 //etag master <field_name>
 {
   field( readonly, numbering : managed ) StudentGUID;
+  field( readonly ) IsMatriculated;
 
   create;
   update;
   delete;
+
+  action matriculateStudent result [1] $self;
 
   validation validateStudentId on save { create; field StudentID; }
 
@@ -20,5 +23,6 @@ lock master
     StudentID = student_id;
     FirstName = firstname;
     LastName = lastname;
+    IsMatriculated = is_matriculated;
   }
 }

@@ -4,13 +4,13 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZHSKA_SB_MS_STUDENT</NAME>
+     <NAME>ZHSKA_SB_MS_STUDENT_ADMIN</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Service Binding</DESCRIPTION>
+     <DESCRIPTION>Service Binding for Admin</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZHSKA_SB_MS_STUDENT</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZHSKA_SB_MS_STUDENT_ADMIN</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -26,20 +26,20 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZHSKA_SB_MS_STUDENT</NAME>
+      <NAME>ZHSKA_SB_MS_STUDENT_ADMIN</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZHSKA_SB_MS_STUDENT</SERVICE_NAME>
+       <SERVICE_NAME>ZHSKA_SB_MS_STUDENT_ADMIN</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zhska_sd_ms_student</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zhska_sd_ms_student_admin</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZHSKA_SD_MS_STUDENT</NAME>
+          <NAME>ZHSKA_SD_MS_STUDENT_ADMIN</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>

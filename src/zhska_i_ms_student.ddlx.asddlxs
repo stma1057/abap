@@ -5,24 +5,29 @@ annotate view ZHSKA_I_MS_STUDENT
     @UI.facet: [ { id: 'Student',
                     purpose: #STANDARD,
                     type: #IDENTIFICATION_REFERENCE,
-                    label: 'Studentendaten',
+                    label: 'Student Data',
                     position: 10 } ]
                     
-    //@UI.hidden: true
+    @UI.hidden: true
     @UI.lineItem: [ { label: 'GUID' } ]
     @UI.identification: [ { label: 'GUID' } ]
     StudentGuid;
     
-    @UI.lineItem: [ { label: 'Matrikelnummer' } ]
-    @UI.identification: [ { label: 'Matrikelnummer' } ]
+    @UI.lineItem: [ { label: 'Student ID' } ]
+    @UI.identification: [ { label: 'Student ID' } ]
     StudentId;
     
-    @UI.lineItem: [ { label: 'Vorname' } ]
-    @UI.identification: [ { label: 'Vorname' } ]
+    @UI.lineItem: [ { label: 'First Name' } ]
+    @UI.identification: [ { label: 'First Name' } ]
     FirstName;
     
-    @UI.lineItem: [ { label: 'Nachname' } ]
-    @UI.identification: [ { label: 'Nachname' } ]
+    @UI.lineItem: [ { label: 'Last Name' } ]
+    @UI.identification: [ { label: 'Last Name' } ]
     LastName;
+    
+    @UI.lineItem: [ { label: 'Matriculated' },
+                    { type: #FOR_ACTION, dataAction: 'matriculateStudent', label: 'Matriculate Student' } ]
+    @UI.identification: [ { label: 'Matriculated' } ]
+    IsMatriculated;
     
 }

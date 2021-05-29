@@ -1,4 +1,4 @@
 @EndUserText.label: 'Service Definition'
 define service ZHSKA_SD_MS_STUDENT {
-  expose ZHSKA_I_MS_STUDENT as Student;
+  expose ZHSKA_C_MS_STUDENT as Student;
 }
